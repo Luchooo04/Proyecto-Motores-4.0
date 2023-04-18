@@ -1,26 +1,36 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using UnityEngine;
 
 public class Disparo : MonoBehaviour
 {
-    [SerializeField] private Transform ControladorDisparo;
+    public Transform ControlDisparo;
+    public GameObject Bala;
 
-    [SerializeField] private GameObject bala;
+    public float ForceShot = 1500f;
+    public float RateShot = 0.5f;
 
-    private void update()
+    private float shotRateTime = 0;
+
+    void Update()
     {
-        if(Input.GetButtonDown("fire1"))
+        if (Input.GetKey(KeyCode.Space))
         {
-            Disparar();
+            if (Time.time > shotRateTime)
+            {
+                GameObject newBala;
+                newBala = Instantiate(Bala, ControlDisparo.position, ControlDisparo.rotation);
+                newBala.GetComponent<Rigidbody>().AddForce(ControlDisparo.forward * ForceShot);
+                shotRateTime = Time.time + RateShot;
+                Destroy(newBala, 2);
+            }
+
+
+
+
         }
-
-
     }
-    private void Disparar()
-    {
-        Instantiate(bala, ControladorDisparo.position, ControladorDisparo.rotation);
 
-    }
 
 }
