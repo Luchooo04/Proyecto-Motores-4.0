@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using UnityEngine;
 
 public class ControlJugador : MonoBehaviour
@@ -7,6 +8,15 @@ public class ControlJugador : MonoBehaviour
     public float velMovimiento = 5.0f;
     public float velRotacion = 200.0f;
     public float x, y;
+
+
+    void OnTriggerEnter(Collider col) 
+    {
+        if (col.CompareTag("Puño")) 
+        {
+            print("Daño");
+        }
+    }
 
     void Start()
     {

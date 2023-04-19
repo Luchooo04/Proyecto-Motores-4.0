@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
 using UnityEngine;
 
 public class Disparo : MonoBehaviour
@@ -10,6 +9,8 @@ public class Disparo : MonoBehaviour
 
     public float ForceShot = 1500f;
     public float RateShot = 0.5f;
+    public int damage;
+    public GameObject zombie;
 
     private float shotRateTime = 0;
 
@@ -29,6 +30,13 @@ public class Disparo : MonoBehaviour
 
 
 
+        }
+    }
+    void OnTriggerEnter(Collider other) 
+    {
+        if (other.tag == "Enemigo") 
+        {
+            zombie.GetComponent<Enemigo>().vidaEnemigo -= damage;
         }
     }
 

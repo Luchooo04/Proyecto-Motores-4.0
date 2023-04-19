@@ -11,6 +11,7 @@ public class Enemigo : MonoBehaviour
     public Quaternion angulo; //rotacion del enemigo
     public float grado; //configura el grado del angulo 
 
+    public int vidaEnemigo;
     public GameObject target;
     public bool atacando;
     void Start()
@@ -33,7 +34,7 @@ public class Enemigo : MonoBehaviour
             switch (rutina)
             {
                 case 0:
-                    ani.SetBool("Walk", false);
+                    ani.SetBool("walk", false);
                     break;
                 case 1:
                     grado = Random.Range(0, 360);
@@ -56,7 +57,7 @@ public class Enemigo : MonoBehaviour
                 lookPos.y = 0;
                 var rotation = Quaternion.LookRotation(lookPos);
                 transform.rotation = Quaternion.RotateTowards(transform.rotation, rotation, 3);
-                ani.SetBool("Walk", false);
+                ani.SetBool("walk", false);
 
                 ani.SetBool("run", true);
                 transform.Translate(Vector3.forward * 2 * Time.deltaTime);
@@ -71,6 +72,10 @@ public class Enemigo : MonoBehaviour
             
             
             }
+        }
+        if (vidaEnemigo <= 0) 
+        {
+            ani.SetBool("death",false);
         }
     
     }

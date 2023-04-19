@@ -1,0 +1,24 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class DañoEnemigo1 : MonoBehaviour
+{
+    public int damage;
+    public GameObject Player;
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "Player")
+        {
+            Player.GetComponent<DatosJugador>().vidaPlayer -= damage;
+        }
+
+        if (other.tag == "Puño")
+        {
+            Debug.Log("Esto es una enemigo");
+        }
+
+    }
+}
+
