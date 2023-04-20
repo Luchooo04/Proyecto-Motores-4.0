@@ -9,12 +9,12 @@ public class DañoEnemigo1 : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             Player.GetComponent<DatosJugador>().vidaPlayer -= damage;
         }
 
-        if (other.tag == "Puño")
+        if (other.CompareTag ("Puño"))
         {
             Debug.Log("Esto es una enemigo");
         }

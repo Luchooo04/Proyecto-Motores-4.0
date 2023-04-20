@@ -6,6 +6,7 @@ TagManager:
   tags:
   - "Pu\xF1o"
   - Enemigo
+  - bala
   layers:
   - Default
   - TransparentFX

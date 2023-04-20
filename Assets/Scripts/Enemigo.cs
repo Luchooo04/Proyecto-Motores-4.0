@@ -11,7 +11,7 @@ public class Enemigo : MonoBehaviour
     public Quaternion angulo; //rotacion del enemigo
     public float grado; //configura el grado del angulo 
 
-    public int vidaEnemigo;
+
     public GameObject target;
     public bool atacando;
     void Start()
@@ -73,11 +73,12 @@ public class Enemigo : MonoBehaviour
             
             }
         }
+       /*
         if (vidaEnemigo <= 0) 
         {
             ani.SetBool("death",false);
         }
-    
+       */
     }
 
     public void Final_Ani() 

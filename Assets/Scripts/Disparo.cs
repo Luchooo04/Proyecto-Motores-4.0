@@ -9,8 +9,8 @@ public class Disparo : MonoBehaviour
 
     public float ForceShot = 1500f;
     public float RateShot = 0.5f;
-    public int damage;
-    public GameObject zombie;
+   // public int damage;
+   // public GameObject zombie;
 
     private float shotRateTime = 0;
 
@@ -32,13 +32,13 @@ public class Disparo : MonoBehaviour
 
         }
     }
-    void OnTriggerEnter(Collider other) 
+   /* void OnTriggerEnter(Collider other) 
     {
-        if (other.tag == "Enemigo") 
+        if (other.CompareTag ("Enemigo")) 
         {
-            zombie.GetComponent<Enemigo>().vidaEnemigo -= damage;
+            zombie.GetComponent<DatosEnemigo>().vidaEnemigo -= damage;
         }
     }
-
+   */
 
 }
