@@ -19,6 +19,7 @@ public class VidaEnemigo : MonoBehaviour
             if (balas_necesarias == balas_disparadas)//Si han tocado al jugador el número de balas necesarias.
             {
 
+                GameManager.instance.AddEnemyKill();
                 Destroy(this.gameObject);//Destruye este objeto.
 
             }
